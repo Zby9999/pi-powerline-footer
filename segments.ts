@@ -193,8 +193,11 @@ const thinkingSegment: StatusLineSegment = {
     const label = levelText[level] || level;
     const content = `think:${label}`;
 
-    if (level === "high" || level === "xhigh") {
-      return { content: rainbow(content), visible: true };
+    if (level === "high") {
+      return { content: applyColor(ctx.theme, "thinkingHigh", content), visible: true };
+    }
+    if (level === "xhigh") {
+      return { content: applyColor(ctx.theme, "thinkingXhigh", content), visible: true };
     }
 
     if (level === "minimal") {
